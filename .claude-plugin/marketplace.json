@@ -1,0 +1,123 @@
+{
+  "name": "claude-ultra-quality-enforcement",
+  "version": "1.0.0",
+  "description": "Ultra-strict quality enforcement plugin with zero-tolerance for errors, warnings, and technical debt. Comprehensive Rust, Python, and TypeScript support with 30+ specialized agents.",
+  "author": {
+    "name": "David Irvine",
+    "email": "[email protected]",
+    "url": "https://github.com/dirvine"
+  },
+  "homepage": "https://github.com/dirvine/claude-plugins",
+  "repository": "https://github.com/dirvine/claude-plugins",
+  "license": "MIT",
+  "keywords": [
+    "rust",
+    "quality",
+    "testing",
+    "ci-cd",
+    "zero-tolerance",
+    "clippy",
+    "cargo",
+    "python",
+    "ruff",
+    "typescript",
+    "eslint",
+    "commit",
+    "security",
+    "performance",
+    "documentation"
+  ],
+  "category": "development",
+  "commands": [
+    "./commands/core/",
+    "./commands/quality/",
+    "./commands/dev/",
+    "./commands/specialized/"
+  ],
+  "agents": [
+    "./agents/quality/",
+    "./agents/language/",
+    "./agents/workflow/",
+    "./agents/specialized/"
+  ],
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "tool_name in ['Edit', 'Write', 'MultiEdit']",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/auto-format.sh",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "tool_name == 'Bash' and 'git commit' in parameters.get('command', '')",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/pre-commit-check.sh",
+            "timeout": 60
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "CLAUDE_HOOK_TYPE=SessionStart ${CLAUDE_PLUGIN_ROOT}/hooks/notify.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "CLAUDE_HOOK_TYPE=Stop ${CLAUDE_PLUGIN_ROOT}/hooks/notify.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "CLAUDE_HOOK_TYPE=SubagentStop ${CLAUDE_PLUGIN_ROOT}/hooks/notify.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "requirements": {
+    "claudeCodeVersion": ">=1.0.0"
+  },
+  "features": [
+    "Zero-tolerance quality enforcement",
+    "30+ specialized development agents",
+    "20+ workflow commands",
+    "Automatic code formatting hooks",
+    "Pre-commit quality validation",
+    "Rust panic-free production code",
+    "Python strict type checking",
+    "TypeScript zero warnings",
+    "Security vulnerability scanning",
+    "Performance analysis",
+    "Documentation auditing",
+    "CI/CD monitoring and auto-fixing"
+  ],
+  "strict": false
+}
