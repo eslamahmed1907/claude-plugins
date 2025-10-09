@@ -1,0 +1,139 @@
+name: Validate Plugin
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    name: Validate Plugin Structure
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Validate marketplace.json
+        run: |
+          echo "Validating marketplace.json..."
+          if [ ! -f ".claude-plugin/marketplace.json" ]; then
+            echo "❌ marketplace.json not found"
+            exit 1
+          fi
+          
+          # Validate JSON syntax
+          if ! jq empty .claude-plugin/marketplace.json 2>/dev/null; then
+            echo "❌ Invalid JSON in marketplace.json"
+            exit 1
+          fi
+          
+          echo "✅ marketplace.json is valid"
+      
+      - name: Check required files
+        run: |
+          echo "Checking required files..."
+          REQUIRED_FILES=(
+            "README.md"
+            "LICENSE"
+            "CHANGELOG.md"
+            "CONTRIBUTING.md"
+            ".gitignore"
+          )
+          
+          for file in "${REQUIRED_FILES[@]}"; do
+            if [ ! -f "$file" ]; then
+              echo "❌ Missing required file: $file"
+              exit 1
+            fi
+            echo "✅ Found: $file"
+          done
+      
+      - name: Validate hooks are executable
+        run: |
+          echo "Checking hook permissions..."
+          for hook in hooks/*.sh hooks/*.py; do
+            if [ ! -x "$hook" ]; then
+              echo "❌ Hook not executable: $hook"
+              exit 1
+            fi
+            echo "✅ $hook is executable"
+          done
+      
+      - name: Count components
+        run: |
+          echo "📊 Component Summary:"
+          echo "Agents: $(find agents -name "*.md" | wc -l)"
+          echo "Commands: $(find commands -name "*.md" | wc -l)"
+          echo "Hooks: $(find hooks -type f \( -name "*.sh" -o -name "*.py" \) | wc -l)"
+      
+      - name: Validate documentation links
+        run: |
+          echo "Checking documentation..."
+          if [ ! -f "docs/AGENTS.md" ] || \
+             [ ! -f "docs/COMMANDS.md" ] || \
+             [ ! -f "docs/HOOKS.md" ] || \
+             [ ! -f "docs/CONFIGURATION.md" ]; then
+            echo "❌ Missing documentation files"
+            exit 1
+          fi
+          echo "✅ All documentation files present"
+
+  shellcheck:
+    name: ShellCheck Linting
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+        with:
+          scandir: './hooks'
+          severity: warning
+
+  markdown-lint:
+    name: Markdown Linting
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Lint Markdown files
+        uses: articulate/actions-markdownlint@v1
+        with:
+          config: .markdownlint.json
+          ignore: node_modules
+          files: '**/*.md'
+        continue-on-error: true
+
+  quality-report:
+    name: Quality Report
+    runs-on: ubuntu-latest
+    needs: [validate, shellcheck]
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Generate Quality Report
+        run: |
+          echo "# Plugin Quality Report" > quality-report.md
+          echo "" >> quality-report.md
+          echo "## Component Counts" >> quality-report.md
+          echo "- Agents: $(find agents -name '*.md' | wc -l)" >> quality-report.md
+          echo "- Commands: $(find commands -name '*.md' | wc -l)" >> quality-report.md
+          echo "- Hooks: $(find hooks -type f \( -name '*.sh' -o -name '*.py' \) | wc -l)" >> quality-report.md
+          echo "- Documentation: $(find docs -name '*.md' | wc -l) files" >> quality-report.md
+          echo "" >> quality-report.md
+          echo "## Documentation Size" >> quality-report.md
+          echo "\`\`\`" >> quality-report.md
+          wc -l docs/*.md >> quality-report.md
+          echo "\`\`\`" >> quality-report.md
+          
+          cat quality-report.md
+      
+      - name: Upload Quality Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: quality-report
+          path: quality-report.md
